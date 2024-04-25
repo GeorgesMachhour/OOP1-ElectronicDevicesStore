@@ -1,0 +1,37 @@
+[ {
+  "id" : 17,
+  "brand" : "lenovo",
+  "model" : "legion",
+  "color" : "black",
+  "capacity" : 256,
+  "price" : 1099.0,
+  "deviceType" : "Laptop",
+  "cpu" : "i7"
+}, {
+  "id" : 18,
+  "brand" : "Apple",
+  "model" : "IPad",
+  "color" : "silver",
+  "capacity" : 250,
+  "price" : 199.0,
+  "deviceType" : "Tablet",
+  "portType" : "lightening"
+}, {
+  "id" : 19,
+  "brand" : "Samsung",
+  "model" : "s23",
+  "color" : "blue",
+  "capacity" : 64,
+  "price" : 99.0,
+  "deviceType" : "SmartPhone",
+  "cameraResolution" : "48"
+}, {
+  "id" : 20,
+  "brand" : "Apple",
+  "model" : "ultra",
+  "color" : "black",
+  "capacity" : 256,
+  "price" : 1099.0,
+  "deviceType" : "SmartWatch",
+  "bandType" : "leather"
+} ]
