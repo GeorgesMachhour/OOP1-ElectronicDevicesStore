@@ -12,6 +12,7 @@ public abstract class ElectronicDevice {
     private String model;
     private String color;
     private int capacity;
+    private int quantity;
     private Double price;
     private String deviceType;
     
@@ -24,11 +25,12 @@ public abstract class ElectronicDevice {
     public void setDeviceType(String deviceType) {
         this.deviceType = deviceType;
     }
-    public ElectronicDevice(String brand, String model, String color, int capacity, Double price) {
+    public ElectronicDevice(String brand, String model, String color, int capacity, int quantity, Double price) {
         this.brand = brand;
         this.model = model;
         this.color = color;
         this.capacity = capacity;
+        this.quantity = quantity;
         this.price = price;
         updateID();
     }
@@ -56,6 +58,14 @@ public abstract class ElectronicDevice {
     public void setCapacity(int capacity) {
         this.capacity = capacity;
     }
+
+    public int getQuantity() {
+        return quantity;
+    }
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
     public Double getPrice() {
         return price;
     }
@@ -67,7 +77,7 @@ public abstract class ElectronicDevice {
     }
 
     private void updateID(){
-        String filePath = "C:\\Users\\georg\\Desktop\\Project_OOP1\\src\\id.txt";
+        String filePath = "C:\\Users\\georg\\Documents\\NetBeansProjects\\OOP1ProjectGeorgesMachhour\\src\\main\\java\\id.txt";
         int idInfile = 0;
         try{
             BufferedReader reader = new BufferedReader(new FileReader(filePath));
@@ -101,6 +111,6 @@ public abstract class ElectronicDevice {
     @Override
     public String toString() {
         return 
-          brand + "," + model + "," + color + "," + capacity + "," + price + "\n";
+          brand + "," + model + "," + color + "," + capacity + "," + quantity+ "," + price + "\n";
     }
 }

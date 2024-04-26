@@ -2,8 +2,8 @@ public class Laptop extends ElectronicDevice {
  
     private String CPU;
 
-    public Laptop(String brand, String model, String color, int capacity, Double price, String CPU) {
-        super(brand, model, color, capacity, price);
+    public Laptop(String brand, String model, String color, int capacity, int quantity, Double price, String CPU) {
+        super(brand, model, color, capacity, quantity, price);
         this.CPU = CPU;
         super.setDeviceType("Laptop");
     }

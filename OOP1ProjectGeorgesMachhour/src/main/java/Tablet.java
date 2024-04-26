@@ -1,8 +1,8 @@
 public class Tablet extends ElectronicDevice {
     private String portType;
 
-    public Tablet(String brand, String model, String color, int capacity, Double price, String portType) {
-        super(brand, model, color, capacity, price);
+    public Tablet(String brand, String model, String color, int capacity, int quantity, Double price, String portType) {
+        super(brand, model, color, capacity, quantity, price);
         this.portType = portType;
         super.setDeviceType("Tablet");
     }

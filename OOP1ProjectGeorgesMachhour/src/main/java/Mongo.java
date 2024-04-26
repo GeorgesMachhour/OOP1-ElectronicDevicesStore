@@ -32,6 +32,7 @@ public class Mongo implements dataHandeling {
                     .append("model", device.getModel())
                     .append("color", device.getColor())
                     .append("capacity", device.getCapacity())
+                    .append("quantity", device.getQuantity())
                     .append("price", device.getPrice());
 
             if (device instanceof Laptop) {
@@ -70,6 +71,7 @@ public class Mongo implements dataHandeling {
                 laptop.setModel(document.getString("model"));
                 laptop.setColor(document.getString("color"));
                 laptop.setCapacity(document.getInteger("capacity"));
+                laptop.setQuantity(document.getInteger("quantity"));
                 laptop.setPrice(document.getDouble("price"));
                 laptop.setCPU(document.getString("CPU"));
                 device.add(laptop);
@@ -81,6 +83,7 @@ public class Mongo implements dataHandeling {
                 smartPhone.setModel(document.getString("model"));
                 smartPhone.setColor(document.getString("color"));
                 smartPhone.setCapacity(document.getInteger("capacity"));
+                smartPhone.setQuantity(document.getInteger("quantity"));
                 smartPhone.setPrice(document.getDouble("price"));
                 smartPhone.setcameraResolution(document.getString("cameraResolution"));
                 device.add(smartPhone);
@@ -92,6 +95,7 @@ public class Mongo implements dataHandeling {
                 smartWatch.setModel(document.getString("model"));
                 smartWatch.setColor(document.getString("color"));
                 smartWatch.setCapacity(document.getInteger("capacity"));
+                smartWatch.setQuantity(document.getInteger("quantity"));
                 smartWatch.setPrice(document.getDouble("price"));
                 smartWatch.setBandType(document.getString("bandType"));
                 device.add(smartWatch);
@@ -104,6 +108,7 @@ public class Mongo implements dataHandeling {
                 tablet.setModel(document.getString("model"));
                 tablet.setColor(document.getString("color"));
                 tablet.setCapacity(document.getInteger("capacity"));
+                tablet.setQuantity(document.getInteger("quantity"));
                 tablet.setPrice(document.getDouble("price"));
                 tablet.setPortType(document.getString("portType"));
                 device.add(tablet);

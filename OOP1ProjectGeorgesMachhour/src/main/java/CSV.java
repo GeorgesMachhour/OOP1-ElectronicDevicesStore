@@ -22,6 +22,7 @@ public class CSV implements dataHandeling {
                 sb.append(device.getModel()).append(",");
                 sb.append(device.getColor()).append(",");
                 sb.append(device.getCapacity()).append(",");
+                sb.append(device.getQuantity()).append(",");
                 sb.append(device.getPrice());
 
                 if (device instanceof Laptop) {
@@ -55,19 +56,19 @@ public class CSV implements dataHandeling {
                 switch (parts[2]) {
                     case "Laptop":
                         device = new Laptop();
-                        ((Laptop) device).setCPU(parts[7]);
+                        ((Laptop) device).setCPU(parts[8]);
                         break;
                     case "SmartPhone":
                         device = new SmartPhone();
-                        ((SmartPhone) device).setcameraResolution(parts[7]);
+                        ((SmartPhone) device).setcameraResolution(parts[8]);
                         break;
                     case "SmartWatch":
                         device = new SmartWatch();
-                        ((SmartWatch) device).setBandType(parts[7]);
+                        ((SmartWatch) device).setBandType(parts[8]);
                         break;
                     case "Tablet":
                         device = new Tablet();
-                        ((Tablet) device).setPortType(parts[7]);
+                        ((Tablet) device).setPortType(parts[8]);
                         break;
                     default:
                     throw new RuntimeException("Custom error message here");
@@ -78,7 +79,8 @@ public class CSV implements dataHandeling {
                 device.setModel(parts[3]);
                 device.setColor(parts[4]);
                 device.setCapacity(Integer.parseInt(parts[5]));
-                device.setPrice(Double.parseDouble(parts[6]));
+                device.setQuantity(Integer.parseInt(parts[6]));
+                device.setPrice(Double.valueOf(parts[7]));
                 devices.add(device);
             }
             reader.close();

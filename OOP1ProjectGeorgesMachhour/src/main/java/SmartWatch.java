@@ -1,8 +1,8 @@
 public class SmartWatch extends ElectronicDevice {
     private String bandType;
 
-    public SmartWatch(String brand, String model, String color, int capacity, Double price, String bandType) {
-        super(brand, model, color, capacity, price);
+    public SmartWatch(String brand, String model, String color, int capacity, int quantity, Double price, String bandType) {
+        super(brand, model, color, capacity, quantity, price);
         this.bandType = bandType;
         super.setDeviceType("SmartWatch");
     }

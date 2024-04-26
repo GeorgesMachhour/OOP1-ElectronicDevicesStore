@@ -2,8 +2,8 @@ public class SmartPhone extends ElectronicDevice {
 
 private String cameraResolution;
 
-public SmartPhone(String brand, String model, String color, int capacity, Double price, String cameraResolution) {
-    super(brand, model, color, capacity, price);
+public SmartPhone(String brand, String model, String color, int capacity, int quantity, Double price, String cameraResolution) {
+    super(brand, model, color, capacity, quantity, price);
     this.cameraResolution = cameraResolution;
     super.setDeviceType("SmartPhone");
 }
