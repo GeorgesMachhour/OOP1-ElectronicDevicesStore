@@ -23,6 +23,7 @@ public class Mongo implements dataHandeling {
     
     @Override
     public void WriteFromArrayList(List<ElectronicDevice> devices) {
+        
         List<Document> documents = new ArrayList<>();
 
         for (ElectronicDevice device : devices) {
@@ -51,12 +52,13 @@ public class Mongo implements dataHandeling {
 
             documents.add(document);
         }
-
+        emptyDatabase();
         collection.insertMany(documents);
     }
     @Override
     public ArrayList<ElectronicDevice> Write2ArrayList() 
     {
+
         ArrayList<ElectronicDevice> device = new ArrayList<>();
 
         for (Document document : collection.find()) {
@@ -119,10 +121,10 @@ public class Mongo implements dataHandeling {
         return device;
     }
 
-    public void closeConnection() {
+    private void closeConnection() {
         mongoClient.close();
     }
-    public void emptyDatabase() {
+    private void emptyDatabase() {
         database.drop();
     }
 }

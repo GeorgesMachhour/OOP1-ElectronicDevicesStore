@@ -4,7 +4,7 @@ import java.util.List;
 public class main{
     public static void main (String[] args)
     {
-        CSV csv = new CSV();
+        Mongo csv = new Mongo();
         List<ElectronicDevice> devices = new ArrayList<>();
       
         devices = csv.Write2ArrayList();
@@ -12,7 +12,9 @@ public class main{
         for(ElectronicDevice device : devices){
             System.out.println(device);
         }
-    
+        
+       
+    /*
         ElectronicDevice l1 = new Laptop ("lenovo", "legion", "black", 256, 200, 1099.00, "i7");
         ElectronicDevice t1 = new Tablet ("Apple", "IPad", "silver", 250, 200, 199.00, "lightening");
         ElectronicDevice s1 = new SmartPhone ("Samsung", "s23", "blue", 64, 200, 99.00, "100_megapixel");
@@ -22,7 +24,7 @@ public class main{
         devices.add(s1);
         devices.add(s2);
 
-        
-        csv.WriteFromArrayList(devices);  
+         */
+        csv.WriteFromArrayList(devices); 
     }
 }
