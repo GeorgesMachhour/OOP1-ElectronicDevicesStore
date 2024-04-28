@@ -6,6 +6,7 @@ public class Laptop extends ElectronicDevice {
         super(brand, model, color, capacity, quantity, price);
         this.CPU = CPU;
         super.setDeviceType("Laptop");
+        
     }
     public Laptop(){
         super.setDeviceType("Laptop");

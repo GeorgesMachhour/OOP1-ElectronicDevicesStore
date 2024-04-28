@@ -1,4 +1,7 @@
 import java.io.*;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 public abstract class ElectronicDevice {
     private int id;
@@ -113,4 +116,20 @@ public abstract class ElectronicDevice {
         return 
           brand + "," + model + "," + color + "," + capacity + "," + quantity+ "," + price + "\n";
     }
+
+    public int compareTo(ElectronicDevice other) {
+        return Double.compare(this.price, other.price);
+    }
+
+    // Method to sort by name alphabetically
+    public static void sortByName(List<ElectronicDevice> devices) {
+        Collections.sort(devices, Comparator.comparing(ElectronicDevice::getModel));
+    }
+
+    // Method to sort by quantity
+    public static void sortByQuantity(List<ElectronicDevice> devices) {
+        Collections.sort(devices, Comparator.comparingInt(ElectronicDevice::getQuantity));
+    }
+
+
 }

@@ -2,8 +2,7 @@ import java.io.IOException;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class dataBase 
-{ 
+public class dataBase { 
     private final int choice; 
     private static ArrayList<ElectronicDevice> devices;
     dataHandeling Data ;
@@ -144,26 +143,12 @@ public class dataBase
                 
             }
            devices.add(toBeAdded);
-    }
+        }
         
         public void saveModifiction() throws IOException
         {
             Data.WriteFromArrayList(devices);  
         }
-        
-        private boolean isWeakMatch(String str1, String str2) {
-             if (str1.length() < 3 || str2.length() < 3) {
-                 return false;
-            }
-        for (int i = 0; i <= str1.length() - 3; i++) {
-        String sub = str1.substring(i, i + 3);
-        if (str2.contains(sub)) {
-            return true;
-        }
-        }
-         return false;
-        }
-
         
         public ElectronicDevice Search4 (String Searching,boolean returnValue, String priceFilter)
         {
@@ -284,7 +269,7 @@ public class dataBase
         {
             if (D==null)
             {
-                System.out.println("Can't be edited!!");
+                System.out.println("Can't be updated!!");
                 return;
             }
             int ind=devices.indexOf(D);
@@ -293,21 +278,24 @@ public class dataBase
             ElectronicDevice toBeAdded=D;
             while(true)
             {
-                System.out.print("What would you like to update :\n\tA-Exit Without Saving\n\t0-Exit and save\n\t1-Brand \n\t2-model\n\t3-color\n\t4-year of release\n\t"
+                System.out.print("What would you like to update :\n\tA-Exit Without Saving\n\t0-Exit and save\n\t1-Brand \n\t2-model\n\t3-color\n\t4-capacity\n\t"
                         + "5-price\n\t6-quantity\n\t");
                 if (toBeAdded instanceof Laptop)
                 {
-                    System.out.print("7-Laptop Type\n\t8-EnergyType\n");
+                    System.out.print("7-CPU\n");
                 }
                 else if (toBeAdded instanceof SmartWatch)
                 {
-                    System.out.print("7-EngineType \n\t8-PayloadCapacity\n");
+                    System.out.print("7-Band Type\n");
                 }
                 else if (toBeAdded instanceof Tablet)
                 {
-                    System.out.print("7-Bike Type\n\t8-EngineSize\n");
+                    System.out.print("7-Port Type\n");
                 }
-                
+                else if (toBeAdded instanceof SmartPhone)
+                {
+                    System.out.print("7-Camera Resolution\n");
+                }
                 option= scan.nextLine();
                   
                 switch (option)
@@ -315,7 +303,7 @@ public class dataBase
                     case "0":
                             {
                                devices.set(ind, toBeAdded);
-                               System.out.println("Succesfully edited"); 
+                               System.out.println("Succesfully updated"); 
                                return;
                             }
                     case "A":
@@ -342,21 +330,20 @@ public class dataBase
                     }
                     case "4":
                     {
-                       
-                            int year = 0;
-                            boolean isValidInput = false;
-                             while (!isValidInput || (year<1900 || year>(currentYear+1)))
-                                {
-                                     System.out.print("Enter New year of release : ");
-                                     String input = scan.nextLine();
-                                    try {
-                                         year = Integer.parseInt(input);
-                                         isValidInput = true;
-                                        } catch (NumberFormatException e) {
-                                        System.out.println("Invalid input: please enter a valid number.");
-                                                                }
-                                 }
-                     toBeAdded.setYear(year);
+                        int capacity = 0;
+                        boolean  isValidInput = false;//to check if the entered is a valid integer
+                         while (!isValidInput || capacity<=0)
+                          {
+                               System.out.print("Enter the new capacity: ");
+                               String input = scan.nextLine();
+                             try {
+                                 capacity = Integer.parseInt(input);// if its a string it will catch the exception before seting the isvalid to true
+                                 isValidInput = true;
+                                 } catch (NumberFormatException e) {
+                                                System.out.println("Invalid input: please enter a valid number.");
+                                                                   }
+                           }
+                      toBeAdded.setCapacity(capacity);
                       break;
                     }
                     case "5":
@@ -365,7 +352,7 @@ public class dataBase
                                     double price=0.00;
                                     while (!isValidInput || price<=0)
                                     {
-                                         System.out.print("Enter new price in U$D number: ");
+                                         System.out.print("Enter the new price in U$D number: ");
                                          String input = scan.nextLine();
                                             try {
                                                   price = Double.parseDouble(input);
@@ -383,7 +370,7 @@ public class dataBase
                                        boolean  isValidInput = false;
                                         while (!isValidInput || qty<=0)
                                          {
-                                              System.out.print("Enter the new qty: ");
+                                              System.out.print("Enter the new quantity: ");
                                               String input = scan.nextLine();
                                             try {
                                                 qty = Integer.parseInt(input);
@@ -397,82 +384,28 @@ public class dataBase
                     }
                     case"7":
                     {
-                        if ((toBeAdded.getDeviceType()).equalsIgnoreCase("car")|| toBeAdded instanceof Laptop)
+                        if ((toBeAdded.getDeviceType()).equalsIgnoreCase("Laptop")|| toBeAdded instanceof Laptop)
                         {
-                            System.out.println("Enter new Cartype   :");
-                            ((Laptop) toBeAdded).setCartype(scan.nextLine());
+                            System.out.println("Enter new CPU:");
+                            ((Laptop) toBeAdded).setCPU(scan.nextLine());
                         }
-                        else if ((toBeAdded.getDeviceType()).equalsIgnoreCase("truck")|| toBeAdded instanceof SmartWatch)
+                        else if ((toBeAdded.getDeviceType()).equalsIgnoreCase("Smart Watch")|| toBeAdded instanceof SmartWatch)
                         {
-                            System.out.println("Enter new Enginetype    :");
-                            ((SmartWatch) toBeAdded).setEngineType(scan.nextLine());
+                            System.out.println("Enter new band type    :");
+                            ((SmartWatch) toBeAdded).setBandType(scan.nextLine());
                         }
                         else if ((toBeAdded.getDeviceType()).equalsIgnoreCase("Tablet")|| toBeAdded instanceof Tablet)
                         {
-                            System.out.println("Enter new Biketype  :");
-                            ((Tablet) toBeAdded).setBikeType(scan.nextLine());
+                            System.out.println("Enter new port type  :");
+                            ((Tablet) toBeAdded).setPortType(scan.nextLine());
+                        }
+                        else if ((toBeAdded.getDeviceType()).equalsIgnoreCase("Smart Phone")|| toBeAdded instanceof SmartPhone)
+                        {
+                            System.out.println("Enter new camera resolution  :");
+                            ((SmartPhone) toBeAdded).setcameraResolution(scan.nextLine());
                         }
                         break;
-                    }
-                    case"8":
-                    {
-                        if ((toBeAdded.getDeviceType()).equalsIgnoreCase("car")|| toBeAdded instanceof Laptop)
-                        {
-                            System.out.println("Enter new EnergyType    :");
-                            ((Laptop) toBeAdded).setFuelType(scan.nextLine());
-                        }
-                        else if ((toBeAdded.getDeviceType()).equalsIgnoreCase("truck")|| toBeAdded instanceof SmartWatch)
-                        {
-                            System.out.println("Enter new payloadCapacity   :");
-                            int capacity = 0;
-
-                        while (capacity < 100) 
-                       {
-                                 System.out.print("Enter load Capacity (in kg, must be at least 100): ");
-                                     String capacityStr = scan.nextLine();
-    
-                            try {
-                                capacity = Integer.parseInt(capacityStr);
-                                } catch (NumberFormatException e) 
-                                        {
-                                   System.out.println("Invalid input. Please enter a valid integer.");
-                                        continue;
-                                        }
-    
-                                                  if (capacity < 100) {
-                                                                            System.out.println("Capacity must be at least 100.");
-                                                                       }
-                        }
-                         ((SmartWatch) toBeAdded).setPayloadCapacity(capacity);
-                        }
-                        else if ((toBeAdded.getDeviceType()).equalsIgnoreCase("Tablet")|| toBeAdded instanceof Tablet)
-                        {
-                            System.out.println("Enter new EngineSize    :");
-                                         int Size = 0;
-
-                                          while (Size <= 0) 
-                                 {
-                                 System.out.print("Enter Engine Size: ");
-                                     String capacityStr = scan.nextLine();
-    
-                                 try {
-                                Size = Integer.parseInt(capacityStr);
-                                } catch (NumberFormatException e) 
-                                        {
-                                   System.out.println("Invalid input. Please enter a valid integer.");
-                                        continue;
-                                        }
-    
-                                                  if (Size <= 0) {
-                                                                             System.out.println("Invalid input. Please enter a valid Size.");
-                                                  }
-                            }
-                                     
-                               ((Tablet) toBeAdded).setEngineSize(Size);
-                        }
-                        break;
-                    }
-                            
+                    }       
                     default:
                     {
                         System.out.println("kindly enter a valid input");
@@ -480,7 +413,15 @@ public class dataBase
                     }
                 }
             }
-            
-                
         }      
-}
+    
+        public void buyElectronicDevice(ElectronicDevice d, int orderedQty)
+        {
+            int deviceQty = d.getQuantity();
+            if (deviceQty<orderedQty){
+                System.out.println("The ordered quantity is larger than the available quantity\t Available quantity: "+deviceQty);
+                return;
+            }
+            d.setQuantity(deviceQty-orderedQty);
+        }
+    }   
