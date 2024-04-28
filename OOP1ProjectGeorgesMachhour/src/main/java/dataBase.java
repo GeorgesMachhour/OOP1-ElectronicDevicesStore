@@ -417,11 +417,32 @@ public class dataBase {
     
         public void buyElectronicDevice(ElectronicDevice d, int orderedQty)
         {
+            int ind=devices.indexOf(d);//get the index of the device to be bought
             int deviceQty = d.getQuantity();
             if (deviceQty<orderedQty){
                 System.out.println("The ordered quantity is larger than the available quantity\t Available quantity: "+deviceQty);
                 return;
             }
             d.setQuantity(deviceQty-orderedQty);
+            devices.set(ind, d);
         }
-    }   
+
+        public void sortList(int choice){
+            
+            switch (choice) {
+                case 1:
+                    ElectronicDevice.sortByName(devices);
+                    break;
+                case 2:
+                    ElectronicDevice.sortByQuantity(devices);
+                    break;
+                case 3:
+                    ElectronicDevice.sortByPrice(devices);
+                    break;
+            
+                default:
+                System.out.println("An error has occured: no sorting has been done.");
+                break;
+            }
+    } 
+}  

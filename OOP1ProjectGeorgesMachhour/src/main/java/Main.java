@@ -15,17 +15,24 @@ public class Main {
         scanner.nextLine(); // Consume newline
         dataBase store = new dataBase(choice);
 
+        ElectronicDevice tempDevice;
+        String tempString;
+
+        String priceFilterOption;
+        String priceFilter;
+
         boolean exit = false;
 
         while (!exit) {
             System.out.println("\nSelect an option:");
             System.out.println("1. Add a new item");
-            System.out.println("2. Buy an item");
-            System.out.println("3. Update an item");
-            System.out.println("4. Delete an item");
+            System.out.println("2. Search & Buy an item");
+            System.out.println("3. Search & Update an item");
+            System.out.println("4. Search & Delete an item");
             System.out.println("5. Search for an item");
             System.out.println("6. Sort items");
-            System.out.println("7. Exit");
+            System.out.println("7. Exit without Saving");
+            System.out.println("8. Exit & Save");
 
             int option = scanner.nextInt();
             scanner.nextLine(); // Consume newline
@@ -35,29 +42,194 @@ public class Main {
                     store.AddNewDevice();
                     break;
                 case 2:
-                    // Provide implementation for buying an item
+                    System.out.print("Search Item to buy : ");
+                    tempString = scanner.nextLine();
+                    System.out.println("Do you want to apply a price filter?");
+                    System.out.println("Enter one of the following options:");
+                    System.out.println("1. Equal");
+                    System.out.println("2. Less or equal");
+                    System.out.println("3. Larger or equal");
+                    System.out.println("4. In a given range");
+                    System.out.println("5. No price filter");
+                    System.out.print("Your choice: ");
+                    priceFilterOption = scanner.nextLine();
+                    priceFilter = null;
+                    switch (priceFilterOption) {
+                        case "1":
+                            priceFilter = "equal";
+                            break;
+                        case "2":
+                            priceFilter = "less or equal";
+                            break;
+                        case "3":
+                            priceFilter = "larger or equal";
+                            break;
+                        case "4":
+                            priceFilter = "in a given range";
+                            break;
+                        case "5":
+                            priceFilter = null;
+                            break;
+                        default:
+                            System.out.println("Invalid option, no price filter will be applied.");
+                            priceFilter = null;
+                            break;
+                    }
+                    tempDevice = store.Search4(tempString, true, priceFilter);
+                    System.out.println("Selected item:\t" + tempDevice);
+
+                    int quantityToBuy = -1;
+                    while (quantityToBuy <= 0) {
+                        System.out.print("Enter the quantity to buy (greater than 0): ");
+                        try {
+                            quantityToBuy = Integer.parseInt(scanner.nextLine());
+                            if (quantityToBuy <= 0) {
+                                System.out.println("Please enter a valid quantity (greater than 0).");
+                            }
+                        } catch (NumberFormatException e) {
+                            System.out.println("Invalid input. Please enter a valid integer.");
+                        }
+                    }
+                    store.buyElectronicDevice(tempDevice,quantityToBuy);
                     break;
                 case 3:
-                    // Provide implementation for updating an item
+                    System.out.print("Search Item to Update : ");
+                    tempString = scanner.nextLine();
+                    System.out.println("Do you want to apply a price filter?");
+                    System.out.println("Enter one of the following options:");
+                    System.out.println("1. Equal");
+                    System.out.println("2. Less or equal");
+                    System.out.println("3. Larger or equal");
+                    System.out.println("4. In a given range");
+                    System.out.println("5. No price filter");
+                    System.out.print("Your choice: ");
+                    priceFilterOption = scanner.nextLine();
+                    priceFilter = null;
+                    switch (priceFilterOption) {
+                        case "1":
+                            priceFilter = "equal";
+                            break;
+                        case "2":
+                            priceFilter = "less or equal";
+                            break;
+                        case "3":
+                            priceFilter = "larger or equal";
+                            break;
+                        case "4":
+                            priceFilter = "in a given range";
+                            break;
+                        case "5":
+                            priceFilter = null;
+                            break;
+                        default:
+                            System.out.println("Invalid option, no price filter will be applied.");
+                            priceFilter = null;
+                            break;
+                    }
+                    tempDevice = store.Search4(tempString, true, priceFilter);
+                    System.out.println("Selected item:\t" + tempDevice);
+
+                    store.UpdateElectronicDevices(tempDevice);
                     break;
                 case 4:
-                    // Provide implementation for deleting an item
+                    System.out.print("Search Item to Delete : ");
+                    tempString = scanner.nextLine();
+                    System.out.println("Do you want to apply a price filter?");
+                    System.out.println("Enter one of the following options:");
+                    System.out.println("1. Equal");
+                    System.out.println("2. Less or equal");
+                    System.out.println("3. Larger or equal");
+                    System.out.println("4. In a given range");
+                    System.out.println("5. No price filter");
+                    System.out.print("Your choice: ");
+                    priceFilterOption = scanner.nextLine();
+                    priceFilter = null;
+                    switch (priceFilterOption) {
+                        case "1":
+                            priceFilter = "equal";
+                            break;
+                        case "2":
+                            priceFilter = "less or equal";
+                            break;
+                        case "3":
+                            priceFilter = "larger or equal";
+                            break;
+                        case "4":
+                            priceFilter = "in a given range";
+                            break;
+                        case "5":
+                            priceFilter = null;
+                            break;
+                        default:
+                            System.out.println("Invalid option, no price filter will be applied.");
+                            priceFilter = null;
+                            break;
+                    }
+                    tempDevice = store.Search4(tempString, true, priceFilter);
+                    System.out.println("Selected item:\t" + tempDevice);
+
+                    store.DeleteElectronicDevices(tempDevice);
                     break;
                 case 5:
-                    // Provide implementation for searching for an item
+                    System.out.print("Search Item: ");
+                    tempString = scanner.nextLine();
+                    System.out.println("Do you want to apply a price filter?");
+                    System.out.println("Enter one of the following options:");
+                    System.out.println("1. Equal");
+                    System.out.println("2. Less or equal");
+                    System.out.println("3. Larger or equal");
+                    System.out.println("4. In a given range");
+                    System.out.println("5. No price filter");
+                    System.out.print("Your choice: ");
+                    priceFilterOption = scanner.nextLine();
+                    priceFilter = null;
+                    switch (priceFilterOption) {
+                        case "1":
+                            priceFilter = "equal";
+                            break;
+                        case "2":
+                            priceFilter = "less or equal";
+                            break;
+                        case "3":
+                            priceFilter = "larger or equal";
+                            break;
+                        case "4":
+                            priceFilter = "in a given range";
+                            break;
+                        case "5":
+                            priceFilter = null;
+                            break;
+                        default:
+                            System.out.println("Invalid option, no price filter will be applied.");
+                            priceFilter = null;
+                            break;
+                    }
+                    tempDevice = store.Search4(tempString, false, priceFilter); 
                     break;
                 case 6:
-                    System.out.println("Sort by:");
-                    System.out.println("1. Name");
-                    System.out.println("2. Quantity");
-                    System.out.println("3. Price");
-                    int sortOption = scanner.nextInt();
-                    scanner.nextLine(); // Consume newline
-
-                    // Provide implementation for sorting items
+                    int sortOption = 0;
+                    while (true) {
+                        System.out.println("Sort by:");
+                        System.out.println("1. Name");
+                        System.out.println("2. Quantity");
+                        System.out.println("3. Price");
+                        sortOption = scanner.nextInt();
+                        scanner.nextLine(); // Consume newline
+                        if (sortOption == 1 || sortOption == 2 || sortOption == 3)
+                            break;
+                        else
+                            System.out.println("Enter a valid option (1,2,3)");
+                    }
+                    store.sortList(sortOption);
                     break;
-                case 7:
+                case 7: {
+                    System.out.println("Exiting...");
+                    exit = true;
+                    break;
+                }
+                case 8:
                     try {
+                        System.out.println("Saving...");
                         store.saveModifiction();
                     } catch (IOException e) {
                         System.out.println("Error saving modifications: " + e.getMessage());
@@ -67,6 +239,7 @@ public class Main {
                     break;
                 default:
                     System.out.println("Invalid option. Please choose a number between 1 and 7.");
+                    break;
             }
         }
 

@@ -131,5 +131,8 @@ public abstract class ElectronicDevice {
         Collections.sort(devices, Comparator.comparingInt(ElectronicDevice::getQuantity));
     }
 
-
+     // Method to sort by price
+    public static void sortByPrice(List<ElectronicDevice> devices) {
+        Collections.sort(devices, Comparator.comparingDouble(ElectronicDevice::getPrice));
+    }
 }
