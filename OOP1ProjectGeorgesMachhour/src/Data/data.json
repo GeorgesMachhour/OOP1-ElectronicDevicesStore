@@ -1,13 +1,23 @@
 [ {
-  "id" : 20,
-  "brand" : "lenovo",
-  "model" : "legion",
-  "color" : "black",
-  "capacity" : 256,
+  "id" : 22,
+  "brand" : "Samsung",
+  "model" : "s23",
+  "color" : "blue",
+  "capacity" : 64,
   "quantity" : 200,
-  "price" : 1099.0,
-  "deviceType" : "Laptop",
-  "cpu" : "i7"
+  "price" : 99.0,
+  "deviceType" : "SmartPhone",
+  "cameraResolution" : "100_megapixel"
+}, {
+  "id" : 30,
+  "brand" : "Samsung",
+  "model" : "s23",
+  "color" : "blue",
+  "capacity" : 64,
+  "quantity" : 200,
+  "price" : 99.0,
+  "deviceType" : "SmartPhone",
+  "cameraResolution" : "100_megapixel"
 }, {
   "id" : 21,
   "brand" : "Apple",
@@ -19,25 +29,35 @@
   "deviceType" : "Tablet",
   "portType" : "lightening"
 }, {
-  "id" : 22,
-  "brand" : "Samsung",
-  "model" : "s23",
-  "color" : "blue",
-  "capacity" : 64,
-  "quantity" : 200,
-  "price" : 99.0,
-  "deviceType" : "SmartPhone",
-  "cameraResolution" : "100_megapixel"
-}, {
-  "id" : 23,
+  "id" : 29,
   "brand" : "Apple",
-  "model" : "ultra",
+  "model" : "IPad",
+  "color" : "silver",
+  "capacity" : 250,
+  "quantity" : 200,
+  "price" : 199.0,
+  "deviceType" : "Tablet",
+  "portType" : "lightening"
+}, {
+  "id" : 20,
+  "brand" : "apple",
+  "model" : "iphonex",
+  "color" : "red",
+  "capacity" : 112,
+  "quantity" : 200,
+  "price" : 600.0,
+  "deviceType" : "SmartPhone",
+  "cameraResolution" : "100_mega_pixel"
+}, {
+  "id" : 20,
+  "brand" : "lenovo",
+  "model" : "legion",
   "color" : "black",
   "capacity" : 256,
   "quantity" : 200,
   "price" : 1099.0,
-  "deviceType" : "SmartWatch",
-  "bandType" : "leather"
+  "deviceType" : "Laptop",
+  "cpu" : "i7"
 }, {
   "id" : 28,
   "brand" : "lenovo",
@@ -49,25 +69,15 @@
   "deviceType" : "Laptop",
   "cpu" : "i7"
 }, {
-  "id" : 29,
+  "id" : 23,
   "brand" : "Apple",
-  "model" : "IPad",
-  "color" : "silver",
-  "capacity" : 250,
+  "model" : "ultra",
+  "color" : "black",
+  "capacity" : 256,
   "quantity" : 200,
-  "price" : 199.0,
-  "deviceType" : "Tablet",
-  "portType" : "lightening"
-}, {
-  "id" : 30,
-  "brand" : "Samsung",
-  "model" : "s23",
-  "color" : "blue",
-  "capacity" : 64,
-  "quantity" : 200,
-  "price" : 99.0,
-  "deviceType" : "SmartPhone",
-  "cameraResolution" : "100_megapixel"
+  "price" : 1099.0,
+  "deviceType" : "SmartWatch",
+  "bandType" : "leather"
 }, {
   "id" : 31,
   "brand" : "Apple",

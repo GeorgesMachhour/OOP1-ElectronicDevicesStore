@@ -114,7 +114,7 @@ public abstract class ElectronicDevice {
     @Override
     public String toString() {
         return 
-          brand + "," + model + "," + color + "," + capacity + "," + quantity+ "," + price + "\n";
+          ","+brand + "," + model + "," + color + "," + capacity + "," + quantity+ "," + price + "\n";
     }
 
     public int compareTo(ElectronicDevice other) {

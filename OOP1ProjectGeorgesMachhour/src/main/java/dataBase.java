@@ -150,107 +150,105 @@ public class dataBase {
             Data.WriteFromArrayList(devices);  
         }
         
-        public ElectronicDevice Search4 (String Searching,boolean returnValue, String priceFilter)
-        {
-            int maxPrice=0, minPrice=0;
-            Scanner scanner = new Scanner(System.in);
-            if (priceFilter.equalsIgnoreCase("in a given range")) 
-            {
-                System.out.println("Max price: ");
-                maxPrice=Integer.parseInt(scanner.nextLine());
-                System.out.println("Min price: ");
-                minPrice=Integer.parseInt(scanner.nextLine());
-            }
-            int count=0;
-            if (devices.isEmpty())
-            {
-                System.out.println("The dataBase is still empty");
-                return null;
-            }
-            HashSet<String> wordsSet = new HashSet<>();
-            String searching=Searching.toLowerCase();
-            String[] words = searching.split("\\s+");
-            for (String word : words)
-                {
-                if (!word.isEmpty()) 
-                {
-                    wordsSet.add(word);
-                }       
-                }
-            List <ElectronicDevice> search=null;
-            ArrayList<ElectronicDevice>Matched=new ArrayList<>();
-            for (String Searching4 : wordsSet)
-            {
-            search= devices.stream()
-                .filter(    D -> 
-                   (D instanceof Laptop && ((Laptop) D).getCPU().equalsIgnoreCase(Searching4))
-                || (D instanceof SmartPhone && ((SmartPhone) D).getcameraResolution().equalsIgnoreCase(Searching4))
-                || (D instanceof SmartWatch && ((SmartWatch) D).getBandType().equalsIgnoreCase(Searching4))       
-                || (D instanceof Tablet && ((Tablet) D).getPortType().equalsIgnoreCase(Searching4))
-                || D.getBrand().equalsIgnoreCase(Searching4)
-                || D.getDeviceType().equalsIgnoreCase(Searching4)
-                || D.getModel().equalsIgnoreCase(Searching4)
-                || D.getColor().equalsIgnoreCase(Searching4)
-                || Integer.toString(D.getCapacity()).equalsIgnoreCase(Searching4)
-                || Integer.toString(D.getQuantity()).equalsIgnoreCase(Searching4)      
-                || (priceFilter.equalsIgnoreCase("less or equal") && D.getPrice() <= Double.parseDouble(Searching4))
-                || (priceFilter.equalsIgnoreCase("equal") && D.getPrice() == Double.parseDouble(Searching4))
-                || (priceFilter.equalsIgnoreCase("larger or equal") && D.getPrice() >= Double.parseDouble(Searching4))
-                || (priceFilter.equalsIgnoreCase("in a given range") && D.getPrice() >= minPrice && D.getPrice() <= maxPrice)
-                )
-                  .collect(Collectors.toList());
-            }
-            System.out.println("Search Results : ");
-   
-               if (!search.isEmpty()) 
-               {
-                 for (ElectronicDevice result : search)
-                 {
-                         count++;
-                         System.out.println(count+"- "+result.toString());
-                         Matched.add(result);
-                 }
-               }    else {  System.out.println("Not found : ");}
-              
-               if (returnValue)
-               {
-                   if (count==0  || Matched.isEmpty())
-                   {
-                       System.out.println("No result to be returned");
-                       return null;
-                   }
-                   System.out.println("Enter the option Number : ");
-                   Scanner scan=new Scanner(System.in);
-                   boolean enteredValid=false;
-                   int Choice =-1;
-                   String choiceString;
-                   while(!enteredValid)
-                   {
-                         choiceString=scan.nextLine();
-                        try {
-                        Choice = Integer.parseInt(choiceString);
-                        } catch (NumberFormatException e) 
-                        {
-                            System.out.println("Invalid choice. Please enter a valid integer.");
-                            enteredValid=false;
-                        }
-                        if ( Choice>count || Choice<=0)
-                        {
-                            enteredValid=false;
-                            System.out.println("Invalid choice. Please enter a valid option number."+count);
-                        }
-                        else
-                        {
-                            enteredValid=true;
-                            
-                        }
-                    }
-                   
-                   return Matched.get(Choice-1);
-               }
-               
+        private boolean priceValid(String price){
+             Double DValue;
+            Boolean validPrice=true;
+        try{
+            DValue = Double.parseDouble(price);
+            validPrice = true;
+        }catch(Exception e){
+            validPrice = false;
+         }
+        return validPrice;
+        }
+        
+        
+     public ElectronicDevice Search4(String searching, boolean returnValue, String priceFilter) {
+    int maxPrice = 0, minPrice = 0;
+    Scanner scanner = new Scanner(System.in);
+
+    if (priceFilter != null) {
+        if (priceFilter.equalsIgnoreCase("in a given range")) {
+            System.out.println("Max price: ");
+            maxPrice = Integer.parseInt(scanner.nextLine());
+            System.out.println("Min price: ");
+            minPrice = Integer.parseInt(scanner.nextLine());
+        } else if (priceFilter.equalsIgnoreCase("less or equal") || priceFilter.equalsIgnoreCase("larger or equal") || priceFilter.equalsIgnoreCase("equal")) {
+            System.out.println("price: ");
+            maxPrice = Integer.parseInt(scanner.nextLine());
+        }
+    }
+    
+    final int fmaxPrice = maxPrice;
+    final int fminPrice = minPrice;
+
+    if (devices.isEmpty()) {
+        System.out.println("The database is still empty");
         return null;
     }
+
+    HashSet<String> wordsSet = new HashSet<>();
+    String[] words = searching.toLowerCase().split("\\s+");
+    for (String word : words) {
+        if (!word.isEmpty()) {
+            wordsSet.add(word);
+        }
+    }
+    wordsSet.add(searching);
+    List<ElectronicDevice> search = new ArrayList<>();
+
+    for (String searching4 : wordsSet) {
+        search.addAll(devices.stream()
+                .filter(D -> (D instanceof Laptop && ((Laptop) D).getCPU().equalsIgnoreCase(searching4))
+                        || (D instanceof SmartPhone && ((SmartPhone) D).getcameraResolution().equalsIgnoreCase(searching4))
+                        || (D instanceof SmartWatch && ((SmartWatch) D).getBandType().equalsIgnoreCase(searching4))
+                        || (D instanceof Tablet && ((Tablet) D).getPortType().equalsIgnoreCase(searching4))
+                        || D.getBrand().equalsIgnoreCase(searching4)
+                        || D.getDeviceType().equalsIgnoreCase(searching4)
+                        || D.getModel().equalsIgnoreCase(searching4)
+                        || D.getColor().equalsIgnoreCase(searching4)
+                        || Integer.toString(D.getCapacity()).equalsIgnoreCase(searching4)
+                        || Integer.toString(D.getQuantity()).equalsIgnoreCase(searching4))
+                .collect(Collectors.toList()));
+    }
+
+    if (priceFilter != null) {
+        search = search.stream().filter(D -> {
+            if (priceFilter.equalsIgnoreCase("less or equal") && D.getPrice() <= fmaxPrice)
+                return true;
+            else if (priceFilter.equalsIgnoreCase("equal") && D.getPrice() == fmaxPrice)
+                return true;
+            else if (priceFilter.equalsIgnoreCase("larger or equal") && D.getPrice() >= fmaxPrice)
+                return true;
+            else return priceFilter.equalsIgnoreCase("in a given range") && D.getPrice() >= fminPrice && D.getPrice() <= fmaxPrice;
+        }).collect(Collectors.toList());
+    }
+
+    System.out.println("Search Results : ");
+    int counter =0;
+
+    if (!search.isEmpty()) {
+        for (ElectronicDevice result : search) {
+            counter++;
+            System.out.println("option "+counter+":\t-"+result);
+        }
+        if (returnValue) {
+            System.out.println("Enter the option Number : ");
+            int choice = Integer.parseInt(scanner.nextLine());
+            if (choice > 0 && choice <= search.size()) {
+                return search.get(choice - 1);
+            } else {
+                System.out.println("Invalid option number.");
+            }
+        }
+    } else {
+        System.out.println("Not found.");
+    }
+
+    return null;
+}
+
+
         
         public void DeleteElectronicDevices(ElectronicDevice D)
         {

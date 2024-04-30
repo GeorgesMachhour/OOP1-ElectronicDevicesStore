@@ -4,15 +4,23 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        int choice = 0;
 
+       while (choice!=1 && choice!=2 && choice!=3){
         System.out.println("Welcome to the Online Store!");
         System.out.println("Choose the data storage format:");
         System.out.println("1. JSON");
         System.out.println("2. CSV");
         System.out.println("3. MongoDB");
-
-        int choice = scanner.nextInt();
-        scanner.nextLine(); // Consume newline
+        try{
+        choice = scanner.nextInt();
+        scanner.nextLine();
+        if  (choice!=1 && choice!=2 && choice!=3)
+            System.out.println("Enter A valid option 1 or 2 or 3");
+        }catch (Exception e){
+            System.out.println("Enter A valid option 1 or 2 or 3");
+        }
+       }
         dataBase store = new dataBase(choice);
 
         ElectronicDevice tempDevice;
