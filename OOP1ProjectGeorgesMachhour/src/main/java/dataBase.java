@@ -131,7 +131,7 @@ public class dataBase {
                     System.out.print("Enter Port Type : ");
                     String portType=scan.nextLine();
                     portType=portType.toLowerCase();
-                    toBeAdded = new SmartPhone(brand,model,color,capacity,qty,price,portType);
+                    toBeAdded = new Tablet(brand,model,color,capacity,qty,price,portType);
                     System.out.println(toBeAdded.toString());
                     break;
                  }
@@ -142,6 +142,7 @@ public class dataBase {
                  }
                 
             }
+           toBeAdded.updateID();
            devices.add(toBeAdded);
         }
         

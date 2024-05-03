@@ -7,7 +7,7 @@ public abstract class ElectronicDevice {
     private int id;
 
     protected void setId(int id) {
-        this.id = id;
+        this.id = id ;
     }
 
 
@@ -20,7 +20,7 @@ public abstract class ElectronicDevice {
     private String deviceType;
     
     public ElectronicDevice() {
-        updateID();
+        
     }
     public String getDeviceType() {
         return deviceType;
@@ -35,7 +35,6 @@ public abstract class ElectronicDevice {
         this.capacity = capacity;
         this.quantity = quantity;
         this.price = price;
-        updateID();
     }
     public String getBrand() {
         return brand;
@@ -79,7 +78,7 @@ public abstract class ElectronicDevice {
         return id;
     }
 
-    private void updateID(){
+    public void updateID(){
         String filePath = "C:\\Users\\georg\\Documents\\NetBeansProjects\\OOP1ProjectGeorgesMachhour\\src\\main\\java\\id.txt";
         int idInfile = 0;
         try{

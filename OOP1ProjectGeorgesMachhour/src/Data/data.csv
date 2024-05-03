@@ -1,4 +1,4 @@
-44,lenovo,Laptop,legion,black,256,200,1099.0,i7
-45,Apple,Tablet,IPad,silver,250,200,199.0,lightening
-46,Samsung,SmartPhone,s23,blue,64,200,99.0,100_megapixel
-47,Apple,SmartWatch,ultra,white,256,200,1099.0,leather
+1,lenovo,Laptop,legion,black,256,1000,1099.0,i9
+2,samsung,SmartPhone,a53,blue,128,1000,300.0,48_megapixel
+3,apple,SmartWatch,ultra,orange,32,1000,800.0,leather
+4,apple,Tablet,ipad,silver,512,1000,1200.0,type_c

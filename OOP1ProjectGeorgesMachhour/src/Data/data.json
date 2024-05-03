@@ -1,91 +1,41 @@
 [ {
-  "id" : 22,
-  "brand" : "Samsung",
-  "model" : "s23",
+  "id" : 8,
+  "brand" : "lenovo",
+  "model" : "legion",
+  "color" : "black",
+  "capacity" : 256,
+  "quantity" : 1000,
+  "price" : 1099.0,
+  "deviceType" : "Laptop",
+  "cpu" : "i9"
+}, {
+  "id" : 5,
+  "brand" : "samsung",
+  "model" : "a53",
   "color" : "blue",
-  "capacity" : 64,
-  "quantity" : 200,
-  "price" : 99.0,
+  "capacity" : 128,
+  "quantity" : 1000,
+  "price" : 300.0,
   "deviceType" : "SmartPhone",
-  "cameraResolution" : "100_megapixel"
+  "cameraResolution" : "48_megapixel"
 }, {
-  "id" : 30,
-  "brand" : "Samsung",
-  "model" : "s23",
-  "color" : "blue",
-  "capacity" : 64,
-  "quantity" : 200,
-  "price" : 99.0,
-  "deviceType" : "SmartPhone",
-  "cameraResolution" : "100_megapixel"
-}, {
-  "id" : 21,
-  "brand" : "Apple",
-  "model" : "IPad",
-  "color" : "silver",
-  "capacity" : 250,
-  "quantity" : 200,
-  "price" : 199.0,
-  "deviceType" : "Tablet",
-  "portType" : "lightening"
-}, {
-  "id" : 29,
-  "brand" : "Apple",
-  "model" : "IPad",
-  "color" : "silver",
-  "capacity" : 250,
-  "quantity" : 200,
-  "price" : 199.0,
-  "deviceType" : "Tablet",
-  "portType" : "lightening"
-}, {
-  "id" : 20,
+  "id" : 6,
   "brand" : "apple",
-  "model" : "iphonex",
-  "color" : "red",
-  "capacity" : 112,
-  "quantity" : 200,
-  "price" : 600.0,
-  "deviceType" : "SmartPhone",
-  "cameraResolution" : "100_mega_pixel"
-}, {
-  "id" : 20,
-  "brand" : "lenovo",
-  "model" : "legion",
-  "color" : "black",
-  "capacity" : 256,
-  "quantity" : 200,
-  "price" : 1099.0,
-  "deviceType" : "Laptop",
-  "cpu" : "i7"
-}, {
-  "id" : 28,
-  "brand" : "lenovo",
-  "model" : "legion",
-  "color" : "black",
-  "capacity" : 256,
-  "quantity" : 200,
-  "price" : 1099.0,
-  "deviceType" : "Laptop",
-  "cpu" : "i7"
-}, {
-  "id" : 23,
-  "brand" : "Apple",
   "model" : "ultra",
-  "color" : "black",
-  "capacity" : 256,
-  "quantity" : 200,
-  "price" : 1099.0,
+  "color" : "orange",
+  "capacity" : 32,
+  "quantity" : 995,
+  "price" : 800.0,
   "deviceType" : "SmartWatch",
   "bandType" : "leather"
 }, {
-  "id" : 31,
-  "brand" : "Apple",
-  "model" : "ultra",
-  "color" : "black",
-  "capacity" : 256,
-  "quantity" : 200,
-  "price" : 1099.0,
-  "deviceType" : "SmartWatch",
-  "bandType" : "leather"
+  "id" : 7,
+  "brand" : "apple",
+  "model" : "ipad",
+  "color" : "silver",
+  "capacity" : 512,
+  "quantity" : 1000,
+  "price" : 1200.0,
+  "deviceType" : "Tablet",
+  "portType" : "type_c"
 } ]
