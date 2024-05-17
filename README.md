@@ -35,8 +35,8 @@ This repository contains the backend system for an electronic devices store. The
 ## Setup
 1. **Clone the repository**:
     ```bash
-    git clone https://github.com/your-username/electronic-devices-store.git
-    cd electronic-devices-store
+    git clone https://github.com/GeorgesMachhour/OOP1-ElectronicDevicesStore.git
+    cd OOP1-ElectronicDevicesStore
     ```
 
 2. **Compile the project**:
